@@ -1,2 +1,2 @@
 #!/bin/bash
-gcc -c $CFILe -o $CFILe.*.o
+gcc -c $CFILe
