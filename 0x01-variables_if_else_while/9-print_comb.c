@@ -8,20 +8,16 @@
 int main(void)
 {
 	int i;
-	char c;
-	char g;
 
 	i = 0;
-	c = ',';
-	g = ' ';
 
 	while (i <= 9)
 	{
 		putchar(i + '0');
 			if (i < 9)
 			{
-				putchar(c);
-				putchar(g);
+				putchar(',');
+				putchar(' ');
 			}
 		i++;
 	}
