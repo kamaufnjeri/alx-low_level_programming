@@ -26,8 +26,8 @@ int main(void)
 		a += b;
 		b = a - b;
 	}
-	b1 = (b % l);
-	b2 = (b / l);
+	b1 = (b / l);
+	b2 = (b % l);
 	a1 = (a / l);
 	a2 = (a % l);
 
