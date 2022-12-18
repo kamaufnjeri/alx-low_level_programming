@@ -10,8 +10,8 @@
 int main(void)
 {
 	unsigned long int i;
-	unsigned long int a = 1;
-	unsigned long int b = 2;
+	unsigned long int a = 2;
+	unsigned long int b = 1;
 	unsigned long int l = 1000000000;
 	unsigned long int b1;
 	unsigned long int b2;
