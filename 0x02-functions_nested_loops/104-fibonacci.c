@@ -18,7 +18,7 @@ int main(void)
 	unsigned long int a1;
 	unsigned long int a2;
 
-	printf("%lu,", b);
+	printf("%lu", b);
 
 	for (i = 1; i < 91; i++)
 	{
