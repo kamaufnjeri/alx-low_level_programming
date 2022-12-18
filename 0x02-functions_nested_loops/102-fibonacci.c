@@ -20,7 +20,7 @@ int main(void)
 
 		if (j < 49)
 		{
-			printf(",");
+			printf(", ");
 		}
 		j++;
 	}
