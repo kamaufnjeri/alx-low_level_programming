@@ -7,14 +7,12 @@
  */
 int _isupper(int c)
 {
-char upper[26];
-
-upper[26] = {case 'A' ... 'Z':};
-if (c == upper)
+if (c >= 'A' && c <= 'Z')
 {
 	return (1);
 }
 else
 {
 	return (0);
+}
 }
