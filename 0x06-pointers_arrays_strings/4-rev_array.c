@@ -8,16 +8,17 @@
  */
 void reverse_array(int *a, int n)
 {
-	int k, b, c;
+	int c = 0;
 
-	b = 0; /*first array*/
-	c = n - 1; /* last array*/
-	while (b < c)
+	while (s[c] != '\0')
 	{
-		k = *(a + b); /* k is swap*/
-		*(a + b) = *(a + c);
-		*(a + c) = k;
-		b++;
 		c++;
 	}
+
+	for (c -= 1; c >= 0; c--)
+	{
+		_putchar(s[c]);
+	}
+
+	_putchar('\n');
 }
