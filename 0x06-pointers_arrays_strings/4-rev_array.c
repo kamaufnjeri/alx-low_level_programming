@@ -1,24 +1,17 @@
-#include "main.h"
+int *p, i, aux, k;
 
-/**
- * reverse_array - reverses the content of an array of integers.
- * @a: array to be compared
- * @n:size of array
- * Return: reversed array
- */
-void reverse_array(int *a, int n)
-{
-	int c = 0;
+	p = a;
 
-	while (s[c] != '\0')
+	for (i = 1; i < n; i++)
 	{
-		c++;
+		p++;
 	}
 
-	for (c -= 1; c >= 0; c--)
+	for (k = 0; k < i / 2; k++)
 	{
-		_putchar(s[c]);
+		aux = a[k];
+		a[k] = *p;
+		*p = aux;
+		p--;
 	}
-
-	_putchar('\n');
 }
