@@ -14,12 +14,11 @@ char **strtow(char *str);
  */
 int word_len(char *str)
 {
-	int index = 0, len = 0;
+	int index, len = 0;
 
-	while (*(str + index) && *(str + index) != ' ')
+	for (index = 0; str[index]; index++)
 	{
 		len++;
-		index++;
 	}
 
 	return (len);
