@@ -16,7 +16,7 @@ int word_len(char *str)
 {
 	int index, len = 0;
 
-	for (index = 0; str[index]; index++)
+	for (index = 0; str[index] || str[index] != ' '; index++)
 	{
 		len++;
 	}
