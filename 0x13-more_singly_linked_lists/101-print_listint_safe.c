@@ -1,3 +1,8 @@
+/*
+ * File: 101-print_listint_safe.c
+ * Auth: Brennan D Baraban
+ */
+
 #include "lists.h"
 #include <stdio.h>
 
@@ -14,39 +19,39 @@ size_t print_listint_safe(const listint_t *head);
  */
 size_t looped_listint_len(const listint_t *head)
 {
-	const listint_t *start, *stop;
+	const listint_t *tortoise, *hare;
 	size_t nodes = 1;
 
 	if (head == NULL || head->next == NULL)
 		return (0);
 
-	start = head->next;
-	stop = (head->next)->next;
+	tortoise = head->next;
+	hare = (head->next)->next;
 
-	while (stop)
+	while (hare)
 	{
-		if (start == stop)
+		if (tortoise == hare)
 		{
-			start = head;
-			while (start != stop)
+			tortoise = head;
+			while (tortoise != hare)
 			{
 				nodes++;
-				start = start->next;
-				stop  = stop->next;
+				tortoise = tortoise->next;
+				hare = hare->next;
 			}
 
-			start = start->next;
-			while (start != stop)
+			tortoise = tortoise->next;
+			while (tortoise != hare)
 			{
 				nodes++;
-				start = start->next;
+				tortoise = tortoise->next;
 			}
 
 			return (nodes);
 		}
 
-		start = start->next;
-		stop = (stop->next)->next;
+		tortoise = tortoise->next;
+		hare = (hare->next)->next;
 	}
 
 	return (0);
@@ -75,9 +80,8 @@ size_t print_listint_safe(const listint_t *head)
 
 	else
 	{
-		while (index < nodes)
+		for (index = 0; index < nodes; index++)
 		{
-			nodes++;
 			printf("[%p] %d\n", (void *)head, head->n);
 			head = head->next;
 		}
