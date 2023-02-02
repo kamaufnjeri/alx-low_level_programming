@@ -36,8 +36,9 @@ size_t looped_listint_len(const listint_t *head)
 			}
 
 			start = start->next;
-			for (; start != stop; nodes++)
+			for (; start != stop; )
 			{
+				nodes++;
 				start = start->next;
 			}
 
