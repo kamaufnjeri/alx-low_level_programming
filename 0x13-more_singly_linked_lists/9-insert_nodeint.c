@@ -3,7 +3,7 @@
 /**
  * insert_nodeint_at_index - ...
  * @head: ...
- * @idx: 
+ * @idx: ...
  * @n: The integer for the new node to contain.
  *
  * Return: ...
@@ -32,7 +32,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 			return (NULL);
 
 		temp = temp->next;
-    node++
+		node++;
 	}
 
 	newadd->next = temp->next;
