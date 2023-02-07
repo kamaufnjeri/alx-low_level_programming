@@ -14,7 +14,8 @@ unsigned int binary_to_uint(const char *b)
 
 	if (b == NULL)
 		return (0);
-
+	while (b[len])
+		len++;
 	len = _strlen(b);
 	while (len--)
 	{
@@ -36,7 +37,7 @@ unsigned int binary_to_uint(const char *b)
   *
   * Return: String length
   */
-int _strlen(const char *s)
+/**int _strlen(const char *s)
 {
 	int c = 0;
 
@@ -44,4 +45,4 @@ int _strlen(const char *s)
 		c++;
 
 	return (c);
-}
+}*/
