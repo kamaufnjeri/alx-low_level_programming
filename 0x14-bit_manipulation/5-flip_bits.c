@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "holberton.h"
+#include "main.h"
 
 /**
   * flip_bits - ...
@@ -10,15 +10,14 @@
   */
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
-	unsigned long int m = 0, c = 0;
+	unsigned long int a, c = 0;
 
-	m = n ^ m;
-	while (m)
+	for (a = 0; a = n ^ m; )
 	{
-		if (m & 1)
+		if (a & 1)
 			c++;
 
-		m >>= 1;
+		a >>= 1;
 	}
 
 	return (c);
