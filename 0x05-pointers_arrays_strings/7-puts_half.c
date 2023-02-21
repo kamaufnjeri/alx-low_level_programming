@@ -14,10 +14,13 @@ void puts_half(char *str)
 		len++;
 	}
 	mid= len / 2;
-	for (i = mid; k = 0; i <= len; k++, i++)
+	for (i = mid; i <= len; i++)
 	{
-		temp[k] = str[i];
-		_putchar(temp[k]);
+		for (k = 0; ; k++)
+		{
+			temp[k] = str[i];
+			_putchar(temp[k]);
+		}
 	}
 	_putchar('\n');
 }
