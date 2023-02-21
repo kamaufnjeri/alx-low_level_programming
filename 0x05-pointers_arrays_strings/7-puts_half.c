@@ -7,14 +7,14 @@
 void puts_half(char *str)
 {
 	int i, len = 0, mid;
-	
+
 	while (str[len] != '\0')
 	{
 		len++;
 	}
 	if ((len % 2) == 0)
 	{
-		mid= len / 2;
+		mid = len / 2;
 	}
 	else
 	{
