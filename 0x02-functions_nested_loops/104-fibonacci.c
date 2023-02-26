@@ -12,7 +12,7 @@ int main(void)
 	unsigned long int a = 0, b = 1, c, l = 1000000000, c1, c2, b1, b2, a1, a2;
 	int i;
 
-	for (i = 1; i < 92; i++)
+	for (i = 1; i < 91; i++)
 	{
 		c = a + b;
 		a = b;
@@ -28,7 +28,7 @@ int main(void)
 
 	for (i = 92; i < 99; ++i)
 	{
-		printf(", %lu", c1);
+		printf(", %lu", c1 + (c2 / l));
 		printf("%lu", c2 % l);
 		c1 = a1 + a2;
 		a1 = b1;
