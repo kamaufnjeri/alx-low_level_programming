@@ -11,9 +11,7 @@
 int main(void)
 {
 	int k;
-	int i;
-
-	sum = 0;	
+	int i;	
 
 	srand(time(NULL));
 
