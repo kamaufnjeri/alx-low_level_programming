@@ -11,7 +11,7 @@
 
 int main(void)
 {
-	int ascii = 3000, i = 0, j, random;
+	int ascii = 2772, i = 0, j, random;
 	char password[100];
 	time_t t;
 
