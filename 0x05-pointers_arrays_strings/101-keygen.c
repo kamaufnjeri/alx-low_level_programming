@@ -10,23 +10,26 @@
  */
 int main(void)
 {
-	int k;
-	int i;	
+	int pass[100];
+	int i, sum, n;
+
+	sum = 0;	
 
 	srand(time(NULL));
 
 	for (i = 0; i < 100; i++)
 	{
-		k = rand() % 128;
-		if ((k >= 48 && k <= 57) || (k >= 65 && k <= 90) || (k >= 97 && k <= 122) || (k >= 35 && k <= 37) || k == 64)
+		pass[i] = rand() % 78;
+		sum += (pass[i] + '0');
+		putchar(pass[i] + '0');
+		if ((2772 - sum) - '0' < 78)
 		{
-			printf("%c", k);
-		}
-		else
-		{
-			i--;
+			n = 2772 - sum - '0';
+			sum += n;
+			putchar(n + '0');
+			break;
 		}
 	}
-	printf("\n");
+
 	return (0);
 }
