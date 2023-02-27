@@ -6,7 +6,7 @@
  */
 void print_number(int n)
 {
-	unsigned int n1;
+	unsigned int n1, b = 0, c, d, j = 1, k;
 
 	if (n < 0)
 	{
@@ -16,11 +16,21 @@ void print_number(int n)
 	{
 		n1 = n;
 	}
-
-	if (n1 / 10)
-	{
-		print_number(n1 / 10);
-	}
-
+	k = n1;
+	while (n1 > 9)
+        {
+            n1 = n1 / 10;
+            b++;
+            for (c = 0; c < b; c++)
+            {
+                j = j*10;
+            }
+            while (k > 9)
+            {
+                d = k / j;
+                printf("%d", d);
+                k = k % j;
+            }
+        }
 	_putchar((n1 % 10) + '0');
 }
