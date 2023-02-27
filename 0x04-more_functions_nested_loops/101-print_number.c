@@ -28,7 +28,7 @@ void print_number(int n)
             while (k > 9)
             {
                 d = k / j;
-                printf("%d", d);
+                _putchar(d + '0');
                 k = k % j;
             }
         }
