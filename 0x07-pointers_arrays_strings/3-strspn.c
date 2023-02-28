@@ -9,24 +9,23 @@
   */
 unsigned int _strspn(char *s, char *accept)
 {
-	unsigned int a = 0, b, t = 0;
+	int i;
+	int consistC = 0;
+	int prevC;
 
-	while (accept[a])
+	while (*s)
 	{
-		b = 0;
-
-		while (s[b] != '\0')
+		i = 0;
+		prevC = consistC;
+		while (*(accept + i) != '\0')
 		{
-			if (accept[a] == s[b])
-			{
-				t++;
-			}
-
-			b++;
+			if (*(accept + i) == *s)
+				consistC++;
+			i++;
 		}
-
-		a++;
+		if (prevC == consistC) /* didn't equal a char from accept */
+			break;
+		s++;
 	}
-
-	return (t);
+	return (consistC);
 }
