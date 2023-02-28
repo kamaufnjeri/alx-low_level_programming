@@ -21,7 +21,10 @@ unsigned int _strspn(char *s, char *accept)
 				l++;
 				k++;
 			}
-			j++;
+			else if (accept[j] != s[i])
+			{
+				j++;
+			}
 		}
 		if (l == 0)
 			break;
