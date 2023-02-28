@@ -29,7 +29,7 @@ unsigned int _strspn(char *s, char *accept)
 				j++;
 			}
 		}
-		if (a == l)
+		if (a == 0)
 			return (l);
 		i++;
 	}
