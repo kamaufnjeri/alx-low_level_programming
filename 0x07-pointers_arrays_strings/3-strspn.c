@@ -30,8 +30,8 @@ unsigned int _strspn(char *s, char *accept)
 			}
 		}
 		if (a == 0)
-			return (a);
+			return (l);
 		i++;
 	}
-	return (a);
+	return (l);
 }
