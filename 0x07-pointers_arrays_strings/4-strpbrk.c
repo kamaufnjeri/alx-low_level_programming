@@ -1,27 +1,28 @@
 /**
- * _strpbrk - searches string for set of bytes
+ * _strpbrk - Find first occurence of any accepted byte
+ * @s: String to search
+ * @accept: Bytes accepted
  *
- * @s: string to check
- * @accept: substring of chars
- *
- * Return: pointer to first occurance
+ * Return: Return pointer to first occurence of byte
  */
+
 char *_strpbrk(char *s, char *accept)
 {
-	int i;
-	
-	while (*s)
+	unsigned int i, j;
+
+	i = 0;
+	while (s[i] != 0)
 	{
-		i = 0;
-		while (*(accept + i) != '\0')
+		j = 0;
+		while (accept[j] != 0)
 		{
-			if (*s == *(accept + i))
+			if (s[i] == accept[j])
 			{
 				return (s);
 			}
-			i++;
+			j++;
 		}
-		s++;
+		i++;
 	}
-	return (0); /* didn't find an occurance */
+	return (0);
 }
