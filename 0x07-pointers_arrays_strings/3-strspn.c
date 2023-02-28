@@ -1,31 +1,36 @@
 #include "main.h"
-
 /**
-  * _strspn - search a string for a set of bytes
-  * @s: source string
-  * @accept: accepted string
-  *
-  * Return: number of bytes in the init segment
-  */
+ * _strspn - Find length of string that consists only of chosen bytes
+ * @s: String to search
+ * @accept: The acceptable bytes string can contain
+ *
+ * Return: Length
+ */
+
 unsigned int _strspn(char *s, char *accept)
 {
-	int i;
-	int consistC = 0;
-	int prevC;
+	unsigned int i, l, j, a;
 
-	while (*s)
+	i = l = 0;
+	while (s[i] != 0)
 	{
-		i = 0;
-		prevC = consistC;
-		while (*(accept + i) != '\0')
+		j = 0;
+		a = 0;
+		while (accept[j] != 0)
 		{
-			if (*(accept + i) == *s)
-				consistC++;
-			i++;
+			if (s[i] != accept[j])
+			{
+				j++;
+			}
+			else if (s[i] == accept[j])
+			{
+				l++;
+				j++;
+			}
 		}
-		if (prevC == consistC) /* didn't equal a char from accept */
-			break;
-		s++;
+		if (a == l)
+			return (l);
+		i++;
 	}
-	return (consistC);
+	return (l);
 }
