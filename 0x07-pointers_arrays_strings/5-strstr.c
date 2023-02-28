@@ -12,7 +12,7 @@ char *_strstr(char *haystack, char *needle)
 {
 	const char *a;
 	const char *b;
-	
+
 	b = needle;
 	if (*b == 0)
 	{
