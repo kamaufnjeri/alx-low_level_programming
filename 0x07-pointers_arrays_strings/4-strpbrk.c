@@ -8,13 +8,14 @@
 
 char *_strpbrk(char *s, char *accept)
 {
+	unsigned int j = 0;
 	char *f;
 
 	while (*s != 0)
 	{
 		while (*accept != 0)
 		{
-			if (*s == *accept)
+			if (*s == *(accept + j))
 			{
 				f = &*s;
 				return (f);
