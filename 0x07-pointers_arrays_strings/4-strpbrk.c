@@ -12,7 +12,6 @@ char *_strpbrk(char *s, char *accept)
 
 	while (*s != 0)
 	{
-		j = 0;
 		while (*accept != 0)
 		{
 			if (*s == *accept)
