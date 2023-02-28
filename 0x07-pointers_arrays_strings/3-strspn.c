@@ -16,14 +16,14 @@ unsigned int _strspn(char *s, char *accept)
 	while (*s)
 	{
 		i = 0;
-		prevC = 0;
+		prevC = consistC;
 		while (*(accept + i) != '\0')
 		{
 			if (*(accept + i) == *s)
 				consistC++;
 			i++;
 		}
-		if (prevC == 0) /* didn't equal a char from accept */
+		if (prevC == consistC) /* didn't equal a char from accept */
 			break;
 		s++;
 	}
