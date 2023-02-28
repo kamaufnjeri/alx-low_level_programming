@@ -24,6 +24,7 @@ unsigned int _strspn(char *s, char *accept)
 			}
 			else if (s[i] == accept[j])
 			{
+				a++;
 				l++;
 				j++;
 			}
