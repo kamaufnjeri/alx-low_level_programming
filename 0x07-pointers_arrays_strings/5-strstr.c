@@ -10,32 +10,31 @@
  */
 char *_strstr(char *haystack, char *needle)
 {
-	const char *a;
-	const char *b;
+	unsigned int i, z, done;
 
-	b = needle;
-	if (*b == 0)
+	i = 0;
+	z = 0;
+	done = 0;
+	while (haystack[i] != '\0')
 	{
-		return (haystack);
-	}
-	for ( ; *haystack != 0; haystack += 1)
-	{
-		if (*haystack != *b)
+		if (needle[z] == haystack[i])
 		{
-			continue;
+			done = 1;
+			z++;
+
 		}
-		a = haystack;
-		while (1)
+		else
 		{
-			if (*b == 0)
-			{
-				return (haystack);
-			}
-			if (*a++ != *b++)
-			{
-				break;
-			}
+			done = 0;
+			z = 0;
 		}
+
+		if (needle[z] == '\0' && done == 1)
+			return ((haystack + i - z + 1));
+		else if (needle[z] == '\0' && done == 0)
+			return (haystack);
+		i++;
 	}
-	return (0);
+
+	return (NULL);
 }
