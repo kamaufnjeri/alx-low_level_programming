@@ -30,7 +30,7 @@ char *_strstr(char *haystack, char *needle)
 		}
 
 		if (needle[z] == '\0' && done == 1)
-			return ((haystack - i));
+			return ((haystack + i - z + 1));
 		else if (needle[z] == '\0' && done == 0)
 			return (haystack);
 		i++;
