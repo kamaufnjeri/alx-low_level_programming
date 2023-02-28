@@ -9,7 +9,7 @@
 char *_strpbrk(char *s, char *accept)
 {
 	unsigned int j = 0;
-	char *f;
+	/**char *f;*/
 
 	while (*s != 0)
 	{
@@ -17,10 +17,9 @@ char *_strpbrk(char *s, char *accept)
 		{
 			if (*s == *(accept + j))
 			{
-				f = &*s;
-				return (f);
+				return (s);
 			}
-			accept++;
+			j++;
 		}
 		s++;
 	}
