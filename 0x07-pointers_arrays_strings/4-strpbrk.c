@@ -10,21 +10,19 @@
 char *_strpbrk(char *s, char *accept)
 {
 	unsigned int i, j, k;
-	char temp;
-
-	i  = k = j = 0;
+	
+	i = k = j = 0;
 	while (s[i] != '\0')
 	{
 		while (accept[j] != '\0')
 		{
 			if (accept[j] == s[i])
 			{
-				temp = *s;
-				k++;
+				return (s);
 			}
 			j++;
 		}
 		i++;
 	}
-	return (temp);
+	return (0);
 }
