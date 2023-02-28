@@ -10,6 +10,7 @@
 unsigned int _strspn(char *s, char *accept)
 {
 	unsigned int i, j, k = 0;
+
 	i  = 0;
 	while (s[i] != '\0' && s[i] != ' ')
 	{
