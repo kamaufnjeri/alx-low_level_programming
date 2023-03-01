@@ -14,7 +14,7 @@ int CheckPrime(int i, int num)
 {
 	if (num <= 1)
 		return (0);
-	if (num == 2 || num == 3 || nuum == i)
+	if (num == 2 || num == 3 || num == i)
 		return (1);
 	if (num % i == 0)
 		return (0);
