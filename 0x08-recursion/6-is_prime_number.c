@@ -22,7 +22,7 @@ int count_divisible(int num, int div)
 		return (1);
 	}
 	else
-		return (count_divisibe(num, div + 1);
+		return (count_divisibe(num, div + 1));
 }
 
 
@@ -35,7 +35,8 @@ int count_divisible(int num, int div)
  */
 int is_prime_number(int n)
 {
-	int div = 2;
+	int div = 2, f;
+	
 	f = count_divisible(n, div);
 	if (f == 0)
 		return (1);
