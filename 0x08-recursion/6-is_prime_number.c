@@ -11,26 +11,19 @@ int is_prime_number(int n);
  * Return: If the number is divisible - 0.
  *         If the number is not divisible - 1.
  */
-int count_divisible(int num, int c)
+int count_divisible(int num, int div)
 {
-	int count;
-	
-	count = 0;
-	c = 0;
-	if (c <= num)
+	if (div == num)
 	{
-		if (num % c == 0)
-		{
-			count = 1 + count_divisible(num, c + 1);
-		}
+		return (0);
 	}
-	if (count == 2)
+	if (num % div == 0)
 	{
-		return (count);
-	}
-	else
 		return (1);
+	}
+	return (count_divisibe(num, div + 1);
 }
+
 
 /**
  * is_prime_number - Checks if a number is prime.
@@ -41,10 +34,9 @@ int count_divisible(int num, int c)
  */
 int is_prime_number(int n)
 {
-	int count;
-	
-	count = count_divisible(n, 1);
-	if (count == 2)
+	int div = 2;
+	f = count_divisible(n, div);
+	if (f == 0)
 		return (1);
 	else
 		return (0);
