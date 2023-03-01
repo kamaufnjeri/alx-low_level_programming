@@ -1,7 +1,7 @@
 #include "main.h"
 
-int find_strlen(char *s);
-int check_palindrome(char *s, int len, int index);
+int fstrlen(char *s);
+int check_palindrome(char *s, int start, int end);
 int is_palindrome(char *s);
 
 /**
@@ -10,14 +10,14 @@ int is_palindrome(char *s);
  *
  * Return: The length of the string.
  */
-int strlen(char *s)
+int fstrlen(char *s)
 {
 	int len = 0;
 
 	if (*s)
 	{
 		len++;
-		len += strlen(s + 1);
+		len += fstrlen(s + 1);
 	}
 	return (len);
 }
@@ -55,7 +55,7 @@ int check_palindrome(char *s, int start, int end)
 int is_palindrome(char *s)
 {
 	int start = 0;
-	int end = find_strlen(s) - 1;
+	int end = fstrlen(s) - 1;
 
 	if (!(*s))
 		return (1);
