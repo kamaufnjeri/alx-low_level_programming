@@ -30,5 +30,6 @@ char *_strstr(char *haystack, char *needle)
 		if (*search == 0)
 			return (string);
 		haystack = string + 1;
+	}
 		return ('\0');
 }
