@@ -15,10 +15,10 @@ char *_strstr(char *haystack, char *needle)
 		for (k = i, j = 0; needle[j] != '\0'; k++, j++)
 		{
 			if (needle[j] != haystack[k])
-				break;
+				continue;
 		}
 		if (needle[j] == '\0')
-			return (haystack + i + k - j);
+			return (haystack + i);
 	}
 	return (NULL);
 }
