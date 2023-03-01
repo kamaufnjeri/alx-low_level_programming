@@ -20,8 +20,6 @@ char *_strstr(char *haystack, char *needle)
 		if (needle[j] == '\0')
 			return (haystack + i);
 	}
-	printf("i = %d\n", i);
-	printf("j = %d\n", j);
-	printf("k = %d\n", k);
+	return (k);
 	return (NULL);
 }
