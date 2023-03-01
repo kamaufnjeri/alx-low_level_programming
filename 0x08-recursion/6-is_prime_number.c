@@ -5,10 +5,9 @@ int CheckPrime(int i, int num);
 /**
  * is_divisible - Checks if a number is divisible.
  * @num: The number to be checked.
- * @div: The divisor.
+ * @i: The divisor.
  *
- * Return: If the number is divisible - 0.
- *         If the number is not divisible - 1.
+ * Return: 0 or 1
  */
 int CheckPrime(int i, int num)
 {
@@ -18,10 +17,7 @@ int CheckPrime(int i, int num)
 		return (1);
 	if (num % i == 0)
 		return (0);
-	else
-	{
-		return CheckPrime(i + 1, num);
-	}
+	return (CheckPrime(i + 1, num));
 }
 /**
  * is_prime_number - Checks if a number is prime.
@@ -32,5 +28,5 @@ int CheckPrime(int i, int num)
  */
 int is_prime_number(int n)
 {
-	return CheckPrime(2, n);
+	return (CheckPrime(2, n));
 }
