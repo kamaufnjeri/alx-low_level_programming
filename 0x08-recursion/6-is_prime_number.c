@@ -15,8 +15,7 @@ int CheckPrime(int i, int num)
 {
 	if (num == i)
 		return (1);
-	else
-		if(num % i == 0)
+	if (num % i == 0)
 			return (0);
 	else
 	{
