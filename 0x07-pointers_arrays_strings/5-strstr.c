@@ -20,7 +20,7 @@ char *_strstr(char *haystack, char *needle)
 	{
 		string = haystack;
 		search = needle;
-		
+
 		while (*search == *haystack && (*haystack != '\0' && *search != '\0'))
 		{
 			haystack++;
