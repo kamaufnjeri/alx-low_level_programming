@@ -41,7 +41,7 @@ int is_prime_number(int n)
 {
 	int count;
 	
-	count_divisible(n, count);
+	count = count_divisible(n, count);
 	if (count == 2)
 		return (1);
 	else
