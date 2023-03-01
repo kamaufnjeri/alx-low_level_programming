@@ -18,8 +18,6 @@ int CheckPrime(int i, int num)
 		return (1);
 	if (num % i == 0)
 		return (0);
-	if (i * i > num)
-		return (1);
 	else
 	{
 		return CheckPrime(i + 1, num);
