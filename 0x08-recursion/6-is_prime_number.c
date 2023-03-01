@@ -19,7 +19,7 @@ int CheckPrime(int i, int num)
 	if (num % i == 0)
 		return (0);
 	if (num == i)
-		return (0);
+		return (1);
 	else
 	{
 		return CheckPrime(i + 1, num);
