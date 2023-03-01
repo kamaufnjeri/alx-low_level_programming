@@ -23,7 +23,6 @@ char *_strstr(char *haystack, char *needle)
 				;
 			}
 			j++;
-			return (haystack +k);
 		}
 		i++;
 		if (needle[j] == '\0')
