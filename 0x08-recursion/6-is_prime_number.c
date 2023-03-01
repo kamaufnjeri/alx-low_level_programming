@@ -14,12 +14,10 @@ int CheckPrime(int i, int num)
 {
 	if (num <= 1)
 		return (0);
-	if (num == 2 || num == 3)
+	if (num == 2 || num == 3 || nuum == i)
 		return (1);
 	if (num % i == 0)
 		return (0);
-	if (num == i)
-		return (1);
 	else
 	{
 		return CheckPrime(i + 1, num);
