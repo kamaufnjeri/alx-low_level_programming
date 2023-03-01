@@ -33,7 +33,7 @@ int fstrlen(char *s)
  */
 int check_palindrome(char *s, int len, int index)
 {
-	if (s[index] == s[len / 2])
+	if (s[index] == s[len])
 		return 1;
 	if (s[index] == s[len - index - 1])
 	{
