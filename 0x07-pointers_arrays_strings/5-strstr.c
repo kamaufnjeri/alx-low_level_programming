@@ -17,14 +17,14 @@ char *_strstr(char *haystack, char *needle)
 	if (*needle == 0)
 		return (haystack);
 
-	while (*haystack)
+	while (*haystack != '\0')
 	{
 		index = 0;
 
 		if (haystack[index] == needle[index])
 		{
 			do {
-				if (needle[index + 1] == '\0')
+				if (needle[index + 1] == 0)
 					return (haystack);
 
 				index++;
