@@ -11,16 +11,17 @@ int is_prime_number(int n);
  * Return: If the number is divisible - 0.
  *         If the number is not divisible - 1.
  */
-int CheckPrime(int i,int num)
+int CheckPrime(int i, int num)
 {
-    if(num==i)
-        return 0;
-    else
-        if(num%i==0)
-            return 1;
-    else{
-        return CheckPrime(i+1,num);
-    }
+	if (num == i)
+		return (1);
+	else
+		if(num % i == 0)
+			return (0);
+	else
+	{
+		return CheckPrime(i + 1, num);
+	}
 }
 /**
  * is_prime_number - Checks if a number is prime.
@@ -31,7 +32,7 @@ int CheckPrime(int i,int num)
  */
 int is_prime_number(int n)
 {
-	if (CheckPrime(2, n)==0)
+	if (CheckPrime(2, n) == 1)
 		return (1);
 	else
 		return (0);
