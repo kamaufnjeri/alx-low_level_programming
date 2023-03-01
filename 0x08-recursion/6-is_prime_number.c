@@ -21,7 +21,8 @@ int count_divisible(int num, int div)
 	{
 		return (1);
 	}
-	return (count_divisibe(num, div + 1);
+	else
+		return (count_divisibe(num, div + 1);
 }
 
 
