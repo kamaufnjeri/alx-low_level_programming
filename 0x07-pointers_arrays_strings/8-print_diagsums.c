@@ -24,7 +24,7 @@ void print_diagsums(int *a, int size)
 		{
 			sumD1 += a[i];
 		}
-		if (i % (size -1) == 0 && i > 0)
+		if (i % (size -1) == 0 && i > 0 && i < (size * size) - 1)
 		{
 			sumD2+= a[i];
 		}
