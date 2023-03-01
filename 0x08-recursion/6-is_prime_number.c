@@ -1,8 +1,7 @@
 #include "main.h"
 
-int is_divisible(int num, int div);
 int is_prime_number(int n);
-
+int CheckPrime(int i, int num);
 /**
  * is_divisible - Checks if a number is divisible.
  * @num: The number to be checked.
@@ -13,10 +12,14 @@ int is_prime_number(int n);
  */
 int CheckPrime(int i, int num)
 {
-	if (num == i)
+	if (num <= 1)
+		return (0);
+	if (num == 2 || num == 3)
 		return (1);
-	if (num % i == 0)
-			return (0);
+	if (num % 2 == 0)
+		return (0);
+	if (num == i)
+		return (0);
 	else
 	{
 		return CheckPrime(i + 1, num);
@@ -31,8 +34,5 @@ int CheckPrime(int i, int num)
  */
 int is_prime_number(int n)
 {
-	if (CheckPrime(2, n) == 1)
-		return (1);
-	else
-		return (0);
+	return CheckPrime(1, n);
 }
