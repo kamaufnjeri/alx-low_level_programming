@@ -24,11 +24,11 @@ char *_strstr(char *haystack, char *needle)
 		
 		while (*search == *haystack || (*haystack != '\0' && *search != '\0'))
 		{
-			haystak++;
+			haystack++;
 			search++;
 		}
 		if (*needle == 0)
-			returnn (string);
+			return (string);
 		haystack = string + 1;
 		return ('\0');
 }
