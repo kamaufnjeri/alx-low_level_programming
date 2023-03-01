@@ -14,21 +14,22 @@
 
 void print_diagsums(int *a, int size)
 {
-	int i;
+	int i, j;
 	int sumD1 = 0;
 	int sumD2 = 0;
 
-	i = 0;
-	while (i < (size * size))
+	for (i = 0; i < size; i++)
 	{
-		sumD1 += a[i];
-		i = i + size + 1;
-	}
-	i = size - 1;
-	while (i < ((size * size) - 1))
-	{
-		sumD2 += a[i];
-		i = i + (size - 1);
+		for (j = 0; j < size; j++)
+		{
+			while (i++ && j++ && j == i)
+			{
+				sumD1 += a[i][j];
+			}
+			while (i++ && j--)
+			{
+				sumD2 += a[i][j];
+			}
 	}
 	printf("%d, %d\n", sumD1, sumD2);
 }
