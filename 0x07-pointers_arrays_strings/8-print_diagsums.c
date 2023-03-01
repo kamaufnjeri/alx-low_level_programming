@@ -20,14 +20,13 @@ void print_diagsums(int *a, int size)
 
 	for (i = 0; i < (size * size); i++)
 	{
-		while (i % 4 == 0)
+		if (i % (size + 1) == 0)
 		{
 			sumD1 += a[i];
 		}
-		for (i = 2; i <= 6; i++)
+		if (i % (size -1) == 0 && i > 0)
 		{
-			i++;
-			sumD2 += a[i];
+			sumD2+= a[i];
 		}
 	}
 	printf("%d, %d\n", sumD1, sumD2);
