@@ -11,10 +11,11 @@ int is_prime_number(int n);
  * Return: If the number is divisible - 0.
  *         If the number is not divisible - 1.
  */
-int count_divisible(int num, int c)
+int count_divisible(int num, int count)
 {
-	int count = 0;
+	int c;
 	
+	count = 0;
 	if (c <= num)
 	{
 		if (num % c == 0)
