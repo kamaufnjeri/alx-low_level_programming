@@ -31,17 +31,12 @@ int fstrlen(char *s)
  * Return: If the string is a palindrome - 1.
  *         If the string is not a palindrome - 0.
  */
-int check_palindrome(char *s, int start, int end)
+int check_palindrome(char *s, int len, int index)
 {
-	char *temp;
-
-	if (*s)
+	if (s[index] == s[len - index - 1])
 	{
-		temp = s[start];
-		s[start] = s[end];
-		s[end] = temp;
-		return (check_palindrome(*s, start++, end--));
-	}
+		return (check_palindrome(s, len, index + 1));
+	}     
 	return (0);
 }
 
@@ -54,10 +49,10 @@ int check_palindrome(char *s, int start, int end)
  */
 int is_palindrome(char *s)
 {
-	int start = 0;
-	int end = fstrlen(s) - 1;
+	int index = 0;
+	int len = fstrlen(s) - 1;
 
 	if (!(*s))
 		return (1);
-	return (check_palindrome(s, start, end));
+	return (check_palindrome(s, len, index));
 }
