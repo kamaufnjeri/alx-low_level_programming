@@ -20,7 +20,7 @@ int count_divisible(int num, int count)
 	{
 		if (num % c == 0)
 		{
-			count = 1 + count_divisible(num, c - 1);
+			count = 1 + count_divisible(num, c - 1));
 		}
 	}
 	if (count == 2)
