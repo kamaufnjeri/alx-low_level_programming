@@ -11,16 +11,17 @@ int is_prime_number(int n);
  * Return: If the number is divisible - 0.
  *         If the number is not divisible - 1.
  */
-int count_divisible(int num, int count)
+int count_divisible(int num, int c)
 {
-	int c;
+	int count;
 	
 	count = 0;
+	c = 0;
 	if (c <= num)
 	{
 		if (num % c == 0)
 		{
-			count = 1 + count_divisible(num, c - 1);
+			count = 1 + count_divisible(num, c + 1);
 		}
 	}
 	if (count == 2)
@@ -40,9 +41,9 @@ int count_divisible(int num, int count)
  */
 int is_prime_number(int n)
 {
-	int count;
+	int count, a = 1;
 	
-	count = count_divisible(n, count);
+	count = count_divisible(n, a);
 	if (count == 2)
 		return (1);
 	else
