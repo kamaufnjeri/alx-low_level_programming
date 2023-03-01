@@ -31,7 +31,7 @@ int strlen(char *s)
  * Return: If the string is a palindrome - 1.
  *         If the string is not a palindrome - 0.
  */
-void check_palindrome(char *s, int start, int end)
+int check_palindrome(char *s, int start, int end)
 {
 	char *temp;
 
@@ -40,8 +40,9 @@ void check_palindrome(char *s, int start, int end)
 		temp = s[start];
 		s[start] = s[end];
 		s[end] = temp;
-		check_palindrome(*s, start++, end--);
+		return (check_palindrome(*s, start++, end--));
 	}
+	return (0);
 }
 
 /**
