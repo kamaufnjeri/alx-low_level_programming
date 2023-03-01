@@ -41,9 +41,9 @@ int count_divisible(int num, int c)
  */
 int is_prime_number(int n)
 {
-	int count, a = 1;
+	int count;
 	
-	count = count_divisible(n, a);
+	count = count_divisible(n, 1);
 	if (count == 2)
 		return (1);
 	else
