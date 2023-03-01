@@ -13,13 +13,15 @@
 char *_strstr(char *haystack, char *needle)
 {
 	char *string, *search;
-	
+
+	if (*needle == 0)
+		return (string);
 	while (*haystack != '\0')
 	{
 		string = haystack;
 		search = needle;
 		
-		while (*search == *haystack || (*haystack != '\0' && *search != '\0'))
+		while (*search == *haystack && (*haystack != '\0' && *search != '\0'))
 		{
 			haystack++;
 			search++;
