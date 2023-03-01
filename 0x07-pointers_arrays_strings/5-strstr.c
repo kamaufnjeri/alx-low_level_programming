@@ -27,7 +27,7 @@ char *_strstr(char *haystack, char *needle)
 			haystack++;
 			search++;
 		}
-		if (*needle == 0)
+		if (*search == 0)
 			return (string);
 		haystack = string + 1;
 		return ('\0');
