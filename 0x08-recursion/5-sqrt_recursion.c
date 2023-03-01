@@ -16,7 +16,7 @@ int find_sqrt(int num, int root)
 	if (root = num / 2)
 		return (root);
 	if (root * root == num)
-		return (root)
+		return (root);
 	else
 		return (find_sqrt(num, root + 1);
 }
