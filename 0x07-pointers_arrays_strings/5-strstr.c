@@ -20,9 +20,9 @@ char *_strstr(char *haystack, char *needle)
 			{
 				if (*needle == 0)
 					return (haystack);
-			}
-			needle++;
-		} while (*needle == * haystack);
+				needle++;
+			} while (*needle == * haystack);
+		}
 		haystack++;
 	}
 	return (0);
