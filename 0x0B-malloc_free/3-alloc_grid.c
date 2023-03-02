@@ -33,9 +33,10 @@ int **alloc_grid(int width, int height)
 
 		if (doublePtr[col] == NULL)
 		{
-			while (col--)
+			col = 0
+			while (col < height)
 				free(doublePtr[col]);
-
+			col++
 			free(doublePtr);
 			return (NULL);
 		}
