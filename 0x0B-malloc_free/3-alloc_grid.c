@@ -26,8 +26,8 @@ int **alloc_grid(int width, int height)
 	{
 		return (NULL);
 	}
-
-	for (col = 0; col < height; col++)
+	col = 0
+	while (col < height)
 	{
 		doublePtr[col] = malloc(width * sizeof(int));
 
@@ -44,6 +44,7 @@ int **alloc_grid(int width, int height)
 		{
 			doublePtr[col][row] = 0;
 		}
+		col++;
 	}
 		return (doublePtr);
 }
