@@ -26,7 +26,7 @@ int **alloc_grid(int width, int height)
 	{
 		return (NULL);
 	}
-	col = 0
+	col = 0;
 	while (col < height)
 	{
 		doublePtr[col] = malloc(width * sizeof(int));
