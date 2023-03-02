@@ -8,10 +8,11 @@
  */
 void free_grid(int **grid, int height)
 {
-	int index;
+	int index, **arr;
 
-	for (index = 0; index < height; index++)
-		free(grid[index]);
-
-	free(grid);
+	arr == grid;
+	index = 0;
+	while (index < height)
+		free(arr[index]);
+	free(arr);
 }
