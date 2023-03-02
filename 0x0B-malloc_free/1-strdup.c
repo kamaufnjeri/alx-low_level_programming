@@ -13,7 +13,7 @@ char *_strdup(char *str)
 {
 	char *duplicate;
 	int index, len = 0;
-	
+
 	if (str == NULL)
 		return (0);
 	for (index = 0; str[index]; index++)
