@@ -40,7 +40,7 @@ int **alloc_grid(int width, int height)
 			return (NULL);
 		}
 		row = 0;
-		while (row < width;)
+		while (row < width)
 		{
 			doublePtr[col][row] = 0;
 			row++;
