@@ -41,12 +41,13 @@ int main(int argc, char *argv[])
 			{
 				coins += cents / c3;
 				cents = cents % c3;
+				continue;
 			}
 			else
 				coins += cents / c4;
 				cents = cents % c4;
-			printf("%d\n", coins);
 		}
+			printf("%d\n", coins);
 	}
 	else
 		printf("Error\n");
