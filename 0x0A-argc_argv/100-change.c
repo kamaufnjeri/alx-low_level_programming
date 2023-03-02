@@ -11,8 +11,7 @@
  *         Otherwise - 0.
  */
 int main(int argc, char *argv[])
-{
-	int cents, coins = 0, c0 = 25, c1 = 10, c2 = 5, c3 = 2, c4 = 1;
+{	int cents, coins = 0, c0 = 25, c1 = 10, c2 = 5, c3 = 2, c4 = 1;
 
 	if (argc == 2)
 	{
@@ -40,8 +39,10 @@ int main(int argc, char *argv[])
 				cents = cents % c3;
 			}
 			else
+			{
 				coins += cents / c4;
 				cents = cents % c4;
+			}
 		}
 			printf("%d\n", coins);
 	}
