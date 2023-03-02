@@ -36,7 +36,7 @@ int **alloc_grid(int width, int height)
 			col = 0;
 			while (col < height)
 				free(doublePtr[col]);
-			col++
+				col++;
 			free(doublePtr);
 			return (NULL);
 		}
