@@ -23,29 +23,27 @@ int main(int argc, char *argv[])
 			{
 				coins += cents / c0;
 				cents = cents % c0;
-				continue;
 			}
 			else if (cents >= c1)
 			{
 				coins += cents / c1;
 				cents = cents % c1;
-				continue;
 			}
 			else if (cents >= c2)
 			{
 				coins += cents / c2;
 				cents = cents % c2;
-				continue;
 			}
 			else if (cents >= c3)
 			{
 				coins += cents / c3;
 				cents = cents % c3;
-				continue;
 			}
 			else
+			{
 				coins += cents / c4;
 				cents = cents % c4;
+			}
 		}
 			printf("%d\n", coins);
 	}
