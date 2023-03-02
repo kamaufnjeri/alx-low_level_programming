@@ -39,10 +39,11 @@ int **alloc_grid(int width, int height)
 			free(doublePtr);
 			return (NULL);
 		}
-
-		for (row = 0; row < width; row++)
+		row = 0;
+		while (row < width;)
 		{
 			doublePtr[col][row] = 0;
+			row++;
 		}
 		col++;
 	}
