@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 int word_len(char *str);
-int word_count(char *str);
+int count_words(char *str);
 char **strtow(char *str);
 
 /**
@@ -14,31 +14,42 @@ char **strtow(char *str);
  */
 int word_len(char *str)
 {
-	int index, len = 0;
-	
-	for (index = 0; str[index] != '\0'; index++)
+	int index = 0, len = 0;
+
+	while (*(str + index) && *(str + index) != ' ')
 	{
-		if (str[index] != ' ')
-		{
-			len++;
-		}
+		len++;
+		index++;
 	}
+
 	return (len);
 }
-int word_count(char *str)
+
+/**
+ * count_words - Counts the number of words contained within a string.
+ * @str: The string to be searched.
+ *
+ * Return: The number of words contained within str.
+ */
+int count_words(char *str)
 {
-	int index, words = 0;
-	
-	for (index = 0; str[index] != '\0'; index++)
+	int index = 0, words = 0, len = 0;
+
+	for (index = 0; *(str + index); index++)
+		len++;
+
+	for (index = 0; index < len; index++)
 	{
-		if (str[index] == ' ')
+		if (*(str + index) != ' ')
 		{
 			words++;
 			index += word_len(str + index);
 		}
 	}
+
 	return (words);
 }
+
 /**
  * strtow - Splits a string into words.
  * @str: The string to be split.
@@ -54,7 +65,7 @@ char **strtow(char *str)
 	if (str == NULL || str[0] == '\0')
 		return (NULL);
 
-	words = word_count(str);
+	words = count_words(str);
 	if (words == 0)
 		return (NULL);
 
@@ -85,5 +96,7 @@ char **strtow(char *str)
 
 		strings[w][l] = '\0';
 	}
+	strings[w] = NULL;
+
 	return (strings);
 }
