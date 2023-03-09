@@ -11,7 +11,7 @@ int word_len(char *str)
                 len++;
                 index++;
         }
-        printf("%d\n", index);A
+        printf("%d\n", index);
         return (len);
 }
 int count_words(char *str)
@@ -20,7 +20,7 @@ int count_words(char *str)
 
         for (index = 0; str[index] != '\0'; index++)
                 len++;
-        for (index = 0; index < OOAlen; index++)
+        for (index = 0; index < len; index++)
         {
                 if(*(str + index) != ' ')
                 {
@@ -49,7 +49,7 @@ char **strtow(char *str)
                         index++;
                 letters = word_len(str + index);
                 string[w] = malloc(sizeof(char) * (letters + 1));
-                if (string[w] = NULL)
+                if (string[w] == NULL)
 		{
                         for (; w >= 0; w--)
                                 free(string[w]);
