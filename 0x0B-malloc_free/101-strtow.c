@@ -1,6 +1,7 @@
 #include "main.h"
 #include <stdlib.h>
 
+int word_len(char *str);
 int word_count(char *str);
 char **strtow(char *str);
 
@@ -11,6 +12,19 @@ char **strtow(char *str);
  *
  * Return: The index marking the end of the initial word pointed to by str.
  */
+int word_len(char *str)
+{
+	int index, len = 0;
+	
+	for (index = 0; str[index] != '\0'; index++)
+	{
+		if (str[index] != ' ')
+		{
+			len++;
+		}
+	}
+	return (len);
+}
 int word_count(char *str)
 {
 	int index, words = 0;
