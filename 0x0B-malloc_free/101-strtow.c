@@ -64,7 +64,7 @@ char **strtow(char *str)
 
 		return (strArr);
 
-		xif (str[wordCount] != ' ' && !letter)
+		if (str[wordCount] != ' ' && !letter)
 		{
 		       strArr[counter] = first_word(str + counter);
 			if (!strArr[counter])
