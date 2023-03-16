@@ -18,11 +18,11 @@ size_t print_list(const list_t *h)
 		}
 		else
 		{
-			printf("[%u] %s\n", h->le, h->st);
+			printf("[%u] %s\n", h->len, h->str);
 		}
 
 		node++;
-		h = h->next;
+		h = h->nex;
 	}
 	return (node);
 }
