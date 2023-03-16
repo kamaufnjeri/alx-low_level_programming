@@ -13,8 +13,8 @@
  */
 list_t *add_node(list_t **head, const char *str)
 {
-	size_t len = 0;
-	list_t *new;
+	int len = 0;
+	list_t *dupl;
 
 	while (str[len] != '\0')
 		len++;
