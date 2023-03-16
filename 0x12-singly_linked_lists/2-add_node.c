@@ -1,5 +1,6 @@
 #include "lists.h"
 #include <string.h>
+#include <stdlib.h>
 
 /**
  * add_node - Adds a new node at the beginning
@@ -21,6 +22,7 @@ list_t *add_node(list_t **head, const char *str)
 	dupl->str = strdup(str);
 	if (dupl == NULL)
 	{
+		free(dupl);
 		return (NULL);
 	}
 	dupl->len = len;
