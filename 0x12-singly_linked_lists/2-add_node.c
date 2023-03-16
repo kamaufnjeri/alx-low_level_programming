@@ -18,6 +18,8 @@ list_t *add_node(list_t **head, const char *str)
 
 	while (str[len] != '\0')
 		len++;
+	if (str == NULL)
+		return (NULL);
 	dupl = malloc(sizeof(list_t));
 	dupl->str = strdup(str);
 	if (dupl == NULL)
