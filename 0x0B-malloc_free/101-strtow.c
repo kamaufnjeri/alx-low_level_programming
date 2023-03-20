@@ -1,101 +1,124 @@
-#include "main.h"
 #include <stdlib.h>
-
-int word_len(char *str);
-int count_words(char *str);
-char **strtow(char *str);
-
+int get_word_length(char *str);
+int get_word_count(char *str);
+char *get_next_word(char *str);
 /**
- * word_len - Locates the index marking the end of the
- *            first word contained within a string.
- * @str: The string to be searched.
+ * strtow - takes a string and seperates its words
  *
- * Return: The index marking the end of the initial word pointed to by str.
- */
-int word_len(char *str)
-{
-	int index, len = 0;
-
-	for (index = 0; str[index] && str[index] != ' '; index++)
-	{
-		len++;
-	}
-
-	return (len);
-}
-
-/**
- * count_words - Counts the number of words contained within a string.
- * @str: The string to be searched.
+ * @str: string to seperate into words
  *
- * Return: The number of words contained within str.
- */
-int count_words(char *str)
-{
-	int index = 0, words = 0, len = 0;
-
-	for (index = 0; *(str + index); index++)
-		len++;
-
-	for (index = 0; index < len; index++)
-	{
-		if (*(str + index) != ' ')
-		{
-			words++;
-			index += word_len(str + index);
-		}
-	}
-
-	return (words);
-}
-
-/**
- * strtow - Splits a string into words.
- * @str: The string to be split.
- *
- * Return: If str = NULL, str = "", or the function fails - NULL.
- *         Otherwise - a pointer to an array of strings (words).
+ * Return: 2D array of pointers to each word
  */
 char **strtow(char *str)
 {
-	char **strings;
-	int index = 0, words, w, letters, l;
+	char **words;
+	int wc, wordLen, n, i = 0;
 
-	if (str == NULL || str[0] == '\0')
+	if (str == NULL || !*str)
 		return (NULL);
-
-	words = count_words(str);
-	if (words == 0)
+	wc = get_word_count(str);
+	if (wc == 0)
 		return (NULL);
-
-	strings = malloc(sizeof(char *) * (words + 1));
-	if (strings == NULL)
+	words = malloc((wc + 1) * sizeof(char *));
+	if (words == NULL)
 		return (NULL);
-
-	for (w = 0; w < words; w++)
+	while (i < wc)
 	{
-		while (str[index] == ' ')
-			index++;
-
-		letters = word_len(str + index);
-
-		strings[w] = malloc(sizeof(char) * (letters + 1));
-
-		if (strings[w] == NULL)
+		wordLen = get_word_length(str);
+		if (*str == ' ' || *str == '\t')
+			str = get_next_word(str);
+		words[i] = malloc((wordLen + 1) * sizeof(char));
+		if (words[i] == NULL)
 		{
-			for (; w >= 0; w--)
-				free(strings[w]);
-
-			free(strings);
+			while (i >= 0)
+			{
+				i--;
+				free(words[i]);
+			}
+			free(words);
 			return (NULL);
 		}
-
-		for (l = 0; l < letters; l++)
-			strings[w][l] = str[index++];
-
-		strings[w][l] = '\0';
+		n = 0;
+		while (n < wordLen)
+		{
+			words[i][n] = *(str + n);
+			n++;
+		}
+		words[i][n] = '\0'; /* set end of str */
+		str = get_next_word(str);
+		i++;
 	}
-	strings[w] = NULL;
+	words[i] = NULL; /* last element is null for iteration */
+	return (words);
+}
+/**
+ * get_word_length - gets the word length of cur word in str
+ *
+ * @str: string to get word length from current word
+ *
+ * Return: word length of current word
+ */
+int get_word_length(char *str)
+{
+	int wLen = 0, pending = 1, i = 0;
 
-	return (strings);
+	while (*(str + i))
+	{
+		if (*(str + i) == ' ' || *(str + i) == '\t')
+			pending = 1;
+		else if (pending)
+		{
+			wLen++;
+		}
+		if (wLen > 0 && (*(str + i) == ' ' || *(str + i) == '\t'))
+			break;
+		i++;
+	}
+	return (wLen);
+}
+/**
+ * get_word_count - gets the word count of a string
+ *
+ * @str: string to get word count from
+ *
+ * Return: the word count of the string
+ */
+int get_word_count(char *str)
+{
+	int wc = 0, pending = 1, i = 0;
+
+	while (*(str + i))
+	{
+		if (*(str + i) == ' ' || *(str + i) == '\t')
+			pending = 1;
+		else if (pending)
+		{
+			pending = 0;
+			wc++;
+		}
+		i++;
+	}
+	return (wc);
+}
+/**
+ * get_next_word - gets the next word in a string
+ *
+ * @str: string to get next word from
+ *
+ * Return: pointer to first char of next word
+ */
+char *get_next_word(char *str)
+{
+	int pending = 0;
+	int i = 0;
+
+	while (*(str + i))
+	{
+		if (*(str + i) == ' ' || *(str + i) == '\t')
+			pending = 1;
+		else if (pending)
+			break;
+		i++;
+	}
+	return (str + i);
 }
