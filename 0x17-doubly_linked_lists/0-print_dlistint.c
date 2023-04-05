@@ -5,10 +5,12 @@
 /**
  * print_dlistint - function to print integers in a double link
  * @h: node with element to be printed
+ * Return: number of nodes
  */
 size_t print_dlistint(const dlistint_t *h)
 {
 	size_t node = 0;
+
 	while (h)
 	{
 		printf("%d\n", h->n);
