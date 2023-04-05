@@ -6,36 +6,39 @@
  * insert_nodeint_at_index - function to insert node at certain index
  * @head: address of node index to insert node starts from zero
  * @n: node to be inserted
+ * @idx: index of node to insert
+ * Return: NULL
  */
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
-	listint_t *temp, *last;
+	listint_t *new, *last;
 	unsigned int node;
 
-	node = 0;
-	temp = malloc(sizeof(listint_t));
-	if (temp == NULL)
-		return (NULL);
-	temp->n = n;
-	temp->next = NULL;
+	new = malloc(sizeof(listint_t));
+	if (new == NULL)
+		return (NULL);;
+	new->n = n;
+	new->next = NULL;
+
 	last = *head;
-	if (*head != NULL)
+	if (idx == 0)
 	{
-		if (node < idx)
-		{
-
-			while (node < (idx - 1))
-			{
-				last = last->next;
-				node++;
-			}
-			temp->next = last->next;
-			last->next = temp;
-			return (temp);
-		}
-		else
-			return (NULL);
+		new->next = *head;
+		*head = new;
+		return (new);
 	}
-	return (NULL);
+	else if (idx > 0)
+	{
+		for (node = 0; node < (idx - 1); node++)
+		{
+			last = last->next;
+		}
+		new->next = last->next;
+		last->next = new;
+		return (new);
+	}
+	else
+	{
+		return (NULL);
+	}
 }
-
