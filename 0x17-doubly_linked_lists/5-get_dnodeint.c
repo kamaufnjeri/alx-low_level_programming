@@ -2,7 +2,8 @@
 
 /**
  * get_dnodeint_at_index - fuunction that returns data at index
- * @head - pointer to the first node
+ * @head: pointer to the first node
+ * @index: position of node to be returned
  * Return: the node at index or NULL if it fails
  */
 dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
