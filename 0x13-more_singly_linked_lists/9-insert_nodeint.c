@@ -10,7 +10,8 @@
  * Return: NULL
  */
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
-{listint_t *new_node, *iter;
+{
+	listint_t *new_node, *iter;
 	unsigned int count = 1;
 
 	if (head)
@@ -44,4 +45,5 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 		}
 		return (new_node);
 	}
+	return (NULL);
 }
