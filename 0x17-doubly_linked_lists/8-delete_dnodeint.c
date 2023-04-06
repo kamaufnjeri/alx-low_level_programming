@@ -22,31 +22,26 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		temp = NULL;
 		return (1);
 	}
-	else if (index > 0)
+	for (node = 0; node < (index); node++)
 	{
-		for (node = 0; node < (index); node++)
+		temp = temp->next;
+		if (temp->next == NULL)
 		{
-			temp = temp->next;
-			if (temp->next == NULL)
-			{
-				/**if (temp == NULL)
-					return (-1);
-			temp2 = temp->prev;
-			temp2->next = NULL;
-			free(temp);
-			temp = NULL;
-			return (1);*/
+			if (temp == NULL)
 				return (-1);
-			}
+		temp2 = temp->prev;
+		temp2->next = NULL;
+		free(temp);
+		temp = NULL;
+		return (1);
 		}
+	}
 		temp2 = temp->prev;
 		temp2->next = temp->next;
 		temp->next->prev = temp2;
 		free(temp);
 		temp = NULL;
 		return (1);
-	}
-	return (-1);
 	}
 	if ((*head)->next == NULL)
 	{
