@@ -11,13 +11,14 @@
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
-	hash_node_t *temp;
+	hash_node_t *temp, *current;
 
 	index = key_index((unsigned char *)key, ht->size);
-	if (ht->array[index] && (strcmp(ht->array[index]->key, key) == 0))
+	current = ht->array[index];
+	if (ht->array[index] && (strcmp(current->key, key) == 0))
 	{
-		free(ht->array[index]->value);
-		ht->array[index]->value = strdup(value);
+		free(current->value);
+		current->value = strdup(value);
 		return (1);
 	}
 	temp = malloc(sizeof(hash_node_t));
