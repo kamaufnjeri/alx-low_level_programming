@@ -1,7 +1,7 @@
 #include "hash_tables.h"
 
 /**
- * hash_table_delete - function to delete an entire hash table
+ * hash_table_delete - a function to delete an entire hash table
  * @ht: hash table
  */
 void hash_table_delete(hash_table_t *ht)
