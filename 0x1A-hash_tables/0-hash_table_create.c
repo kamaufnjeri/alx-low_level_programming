@@ -1,13 +1,14 @@
 #include "hash_tables.h"
 
-/**hast_table_create - function that creates a hash table
+/**
+ * hast_table_create - function that creates a hash table
  * @size: size of the hashtable
  * Return: pointer to the newly created hash table or null if it fails
  */
 hash_table_t *hash_table_create(unsigned long int size)
 {
 	hash_table_t *table;
-	long unsigned int i;
+	unsigned long int i;
 
 	table = malloc(sizeof(hash_table_t));
 	if (table == NULL)
