@@ -42,10 +42,10 @@ shash_node_t *create_nod(shash_table_t *ht, const char *key, const char *value)
 
 	if (ht == NULL || key == NULL || *key == '\0' || value == NULL)
 		return (NULL);
-	temp = ht->shead;
 	val = strdup(value);
 	if (val == NULL)
 		return (NULL);
+	temp = ht->shead;
 	while (temp)
 	{
 		if (strcmp(temp->key, key) == 0)
@@ -85,13 +85,24 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 
 	if (ht == NULL || key == NULL || *key == '\0' || value == NULL)
 		return (0);
+	temp = ht->shead;
+	while (temp)
+	{
+		if (strcmp(temp->key, key) == 0)
+		{
+			free(temp->value);
+			temp->value = strdup(value);
+			return (1);
+		}
+		temp = temp->snext;
+	}
 	new = create_nod(ht, key, value);
 	if (ht->shead == NULL)
 	{
 		ht->shead = new;
 		ht->stail = new;
 	}
-	else if (strcmp(ht->shead->key, key) > 0)
+	else if(strcmp(ht->shead->key, key) > 0)
 	{
 		new->snext = ht->shead;
 		ht->shead->sprev = new;
