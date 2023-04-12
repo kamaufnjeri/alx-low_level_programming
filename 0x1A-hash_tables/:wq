@@ -41,7 +41,7 @@ shash_node_t *create_nod(shash_table_t *ht, const char *key, const char *value)
 	unsigned long int index = key_index((const unsigned char *)key, ht->size);
 
 	if (ht == NULL || key == NULL || *key == '\0' || value == NULL)
-		return (NULL);
+g	return (NULL);
 	val = strdup(value);
 	if (val == NULL)
 		return (NULL);
@@ -80,7 +80,8 @@ shash_node_t *create_nod(shash_table_t *ht, const char *key, const char *value)
  * Return: node created or NULL
  */
 int shash_table_set(shash_table_t *ht, const char *key, const char *value)
-{shash_node_t *temp, *new;
+{
+	shash_node_t *temp, *new;
 
 	if (ht == NULL || key == NULL || *key == '\0' || value == NULL)
 		return (0);
@@ -101,7 +102,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 		ht->shead = new;
 		ht->stail = new;
 	}
-	else if (strcmp(ht->shead->key, key) > 0)
+	else if(strcmp(ht->shead->key, key) > 0)
 	{
 		new->snext = ht->shead;
 		ht->shead->sprev = new;
@@ -111,7 +112,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	{
 		temp = ht->stail;
 		while (temp->sprev != NULL && strcmp(temp->key, key) > 0)
-			temp = temp->sprev;
+				temp = temp->sprev;
 		new->sprev = temp;
 		new->snext = temp->snext;
 		if (temp->snext != NULL)
@@ -119,6 +120,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 		else
 			ht->stail = new;
 		temp->snext = new;
+		}
 	}
 	return (1);
 }
