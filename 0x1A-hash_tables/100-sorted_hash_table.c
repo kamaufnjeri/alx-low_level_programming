@@ -1,7 +1,15 @@
 #include "hash_tables.h"
 
+shash_table_t *shash_table_create(unsigned long int size);
+int shash_table_set(shash_table_t *ht, const char *key, const char *value);
+char *shash_table_get(const shash_table_t *ht, const char *key);
+void shash_table_print(const shash_table_t *ht);
+void shash_table_print_rev(const shash_table_t *ht);
+void shash_table_delete(shash_table_t *ht);
+shash_node_t *createnod(shash_table_t *ht, const char *key, const char *value);
+
 /**
- * shash_hash_table_create - creates  hash tavble
+ * shash_table_create - creates hash table
  * @size: size of the hash table
  * Return: hashtable or NULL if not created
  */
@@ -28,13 +36,13 @@ shash_table_t *shash_table_create(unsigned long int size)
 }
 
 /**
- * create_nod - creates node
+ * createnod - creates node
  * @ht: hashtable to insert node
  * @key: key to insert value
  * @value: value to insert
  * Return: node created or NULL
  */
-shash_node_t *create_nod(shash_table_t *ht, const char *key, const char *value)
+shash_node_t *createnod(shash_table_t *ht, const char *key, const char *value)
 {
 	shash_node_t *temp, *new;
 	char *val;
@@ -72,6 +80,7 @@ shash_node_t *create_nod(shash_table_t *ht, const char *key, const char *value)
 	new->sprev = NULL;
 	return (new);
 }
+
 /**
  * shash_table_set - set a sorted hash table
  * @ht: hashtable to insert node
@@ -95,7 +104,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 		}
 		temp = temp->snext;
 	}
-	new = create_nod(ht, key, value);
+	new = createnod(ht, key, value);
 	if (ht->shead == NULL)
 	{
 		ht->shead = new;
@@ -122,6 +131,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	}
 	return (1);
 }
+
 /**
  * shash_table_get - get a node at a certain index
  * @ht: hashtable
@@ -145,6 +155,7 @@ char *shash_table_get(const shash_table_t *ht, const char *key)
 		return (temp->value);
 	return (NULL);
 }
+
 /**
  * shash_table_delete - deletes hash table
  * @ht: hashtable
@@ -160,10 +171,12 @@ void shash_table_delete(shash_table_t *ht)
 	{
 		free(temp->key);
 		free(temp->value);
-		free(temp);
+		temp = temp->snext;
 	}
+	free(temp);
 	free(ht);
 }
+
 /**
  * shash_table_print - print nodes in sorted order of a hashtable
  * @ht: hash table
@@ -188,6 +201,7 @@ void shash_table_print(const shash_table_t *ht)
 	}
 	printf("}\n");
 }
+
 /**
  * shash_table_print_rev - print in reverse
  * @ht: hash table
