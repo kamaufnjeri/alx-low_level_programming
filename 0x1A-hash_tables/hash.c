@@ -214,3 +214,4 @@ void shash_table_print_rev(const shash_table_t *ht)
 	}
 	printf("}\n");
 }
+#include "hash_tables.h"
