@@ -152,18 +152,16 @@ char *shash_table_get(const shash_table_t *ht, const char *key)
  */
 void shash_table_delete(shash_table_t *ht)
 {
-	shash_node_t *temp, *tmp;
+	shash_node_t *temp;
 
 	if (ht == NULL)
 		return;
 	temp = ht->shead;
 	while (temp != NULL)
 	{
-		tmp = temp->snext;
 		free(temp->key);
 		free(temp->value);
 		free(temp);
-		temp = tmp;
 	}
 	free(ht);
 }
