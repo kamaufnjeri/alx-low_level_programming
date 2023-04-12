@@ -101,7 +101,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 		ht->shead = new;
 		ht->stail = new;
 	}
-	else if(strcmp(ht->shead->key, key) > 0)
+	else if (strcmp(ht->shead->key, key) > 0)
 	{
 		new->snext = ht->shead;
 		ht->shead->sprev = new;
@@ -189,7 +189,7 @@ void shash_table_print(const shash_table_t *ht)
 	printf("}\n");
 }
 /**
- * shash_table_print_prev - print in reverse
+ * shash_table_print_rev - print in reverse
  * @ht: hash table
  */
 void shash_table_print_rev(const shash_table_t *ht)
