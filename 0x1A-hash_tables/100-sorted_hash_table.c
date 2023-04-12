@@ -37,17 +37,21 @@ shash_table_t *shash_table_create(unsigned long int size)
 shash_node_t *create_nod(shash_table_t *ht, const char *key, const char *value)
 {
 	shash_node_t *temp, *new;
+	char *val;
 	unsigned long int index = key_index((const unsigned char *)key, ht->size);
 
 	if (ht == NULL || key == NULL || *key == '\0' || value == NULL)
 		return (NULL);
 	temp = ht->shead;
+	val = strdup(value);
+	if (val == NULL)
+		return (NULL);
 	while (temp)
 	{
 		if (strcmp(temp->key, key) == 0)
 		{
 			free(temp->value);
-			temp->value = strdup(value);
+			temp->value = val;
 			return (temp);
 		}
 		temp = temp->snext;
@@ -57,9 +61,9 @@ shash_node_t *create_nod(shash_table_t *ht, const char *key, const char *value)
 		return (NULL);
 	new->key = strdup(key);
 	if (new->key == NULL)
-		free(value);
+		free(val);
 		return (NULL);
-	new->value = strdup(value);
+	new->value = val;
 	new->next = ht->array[index];
 	ht->array[index] = new;
 	new->snext = NULL;
@@ -133,7 +137,7 @@ char *shash_table_get(const shash_table_t *ht, const char *key)
 	if (ht->array[index] == NULL)
 		return (NULL);
 	temp = ht->array[index];
-	while(strcmp(temp->key, key) != 0)
+	while (strcmp(temp->key, key) != 0)
 		temp = temp->next;
 	if (strcmp(temp->key, key) == 0)
 		return (temp->value);
