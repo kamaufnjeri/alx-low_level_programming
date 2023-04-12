@@ -90,14 +90,12 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	{
 		ht->shead = new;
 		ht->stail = new;
-		return (1);
 	}
 	else if (strcmp(ht->shead->key, key) > 0)
 	{
 		new->snext = ht->shead;
 		ht->shead->sprev = new;
 		ht->shead = new;
-		return (1);
 	}
 	else
 	{
@@ -107,7 +105,6 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 			temp->snext = new;
 			new->sprev = temp;
 			ht->stail = new;
-			return (1);
 		}
 		else
 		{
@@ -117,10 +114,9 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 			new->snext = temp->snext;
 			temp->snext->sprev = new;
 			temp->snext = new;
-			return (1);
 		}
 	}
-	return (0);
+	return (1);
 }
 /**
  * shash_table_get - get a node at a certain index
