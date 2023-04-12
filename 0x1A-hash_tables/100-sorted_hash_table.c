@@ -163,6 +163,7 @@ void shash_table_delete(shash_table_t *ht)
 		free(temp->key);
 		free(temp->value);
 		free(temp);
+		temp = tmp;
 	}
 	free(ht);
 }
